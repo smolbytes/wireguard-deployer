@@ -4,15 +4,18 @@
 #
 #
 #install Wireguard first
-if [ -n "$(command -v dnf)" ]; then
-   echo "[+] Installing with apt                               [+]"
-   sudo apt install wireguard resolvconf
-elif [ -n "$(command -v apt)" ]; then 
-   echo "[+] Installing with dnf                               [+]"
-   sudo dnf install wireguard-tools resolvconf
+if [ -n "$(uname -a | grep Ubuntu)" ]; then
+    echo "[+] Installing with apt                               [+]"
+    sudo apt install wireguard resolvconf
+elif [ -n "$(uname -a | grep debian)" ]; then
+    echo "[+] Installing with apt                               [+]"
+    sudo apt install wireguard resolvconf
+elif [ "$(dnf 2>/dev/null 1>/dev/null; echo $?)" = 0 ]; then 
+    echo "[+] Installing with dnf                               [+]"
+    sudo dnf install wireguard-tools resolvconf
 else
-   echo "[-] No package manager available to install wireguard [-]"
-   echo "[-] exiting...     :(                                 [-]"
+    echo "[-] No package manager available to install wireguard [-]"
+    echo "[-] exiting...     :(                                 [-]"
 fi
 #
 echo "[+] Please enter the following to continue...                [+]"
