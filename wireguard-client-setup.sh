@@ -22,7 +22,7 @@ echo "[+] Please enter the following to continue...                [+]"
 read -t 60 -p 'Server peer public key: ' wgserverpubkey
 read -t 60 -p 'Server peer IP/domain: ' wgserverIP
 read -t 60 -p 'Server peer UDP port: ("y" for 51820)' wgserverUDPport
-if [ wgserverUDPport == "y" ]; then
+if [[ wgserverUDPport == "y" ]]; then
     wgserverUDPport = 51820
 fi
 read -s -t 60 -p 'Your client private key: ' wgclientprivkey
