@@ -43,7 +43,7 @@ DNS = 1.1.1.1 1.0.0.1 #DNS client should use for resolution (Cloudflare in this 
 [Peer]
 PublicKey=HERE # Server public key
 Endpoint=HERE # Where the server is at + the listening port, ie YOUR_SERVER:51820
-AllowedIPs = 0.0.0.0/0, ::/0 #Forward all traffic to server
+AllowedIPs = 0.0.0.0/0, ::/0 #Forward all traffic to server. On windows, consider 0.0.0.0/1 due to fw rules and https://git.zx2c4.com/wireguard-windows/about/docs/netquirk.md
 PersistentKeepalive = 30
 EOFWG
 #
